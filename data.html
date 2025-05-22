@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        header{
+            margin-top: 50px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            font-size: 2rem;
+        }
+        form{
+            border: 2px solid black;
+            margin-top: 20px;
+            width: 350px;
+            height: 320px;
+            border-radius: 10px;
+        }
+        input{
+            display:block;
+            margin: 20px 0px;
+            padding: 10px 0px;
+            width: 80%;
+        }
+        button{
+            width: 80%;
+            padding: 10px 0px;
+            font-weight: bold;
+        }
+        button:hover{
+            background-color: burlywood;
+        }
+        table{
+            width: 80%;
+            border: 2px solid black;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        h2{
+            font-size: 1.5rem;
+            margin-top: 20px;
+        }
+        thead,tbody{
+            text-align: center;
+        }
+        th,td{
+            border: 2px solid black;
+            padding: 5px 0px;
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <header>Register Form</header>
+        <form action="" method="" id="myform">
+            <input type="text" name="Name" id="Name" placeholder="Enter Name" required>
+            <input type="email" name="Email" id="Email" placeholder="Enter Mail Id" required>
+            <input type="password" name="Password" id="password" placeholder="Enter Password" required>
+            <input type="number" name="Age" id="Age" placeholder="Enter Age" required>
+            <button type="submit">Submit</button>
+        </form>
+        <table id="usertable">
+            <h2>User Details</h2>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Age</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+        <script>
+            document.getElementById('myform').addEventListener('submit',function(e){
+                e.preventDefault();
+                const name=document.getElementById('Name').value;
+                const email=document.getElementById('Email').value;
+                const age=document.getElementById('Age').value;
+                const table=document.getElementById('usertable').getElementsByTagName('tbody')[0];
+                const newRow=table.insertRow();
+                const cellName=newRow.insertCell(0);
+                const cellEmail=newRow.insertCell(1);
+                const cellAge=newRow.insertCell(2);
+                cellName.textContent=name;
+                cellEmail.textContent=email;
+                cellAge.textContent=age;
+                document.getElementById('myform').reset();
+            });
+        </script>
+    </center>
+</body>
+</html>
